@@ -10,6 +10,9 @@ WORKDIR /app
 EXPOSE 8000
 
 ARG DEV=false
+
+RUN apk update && apk add postgresql-dev gcc python3-dev musl-dev
+
 RUN python -m venv /py &&  \
     /py/bin/pip install --upgrade pip &&  \
     /py/bin/pip install -r /tmp/requirements.txt &&  \
